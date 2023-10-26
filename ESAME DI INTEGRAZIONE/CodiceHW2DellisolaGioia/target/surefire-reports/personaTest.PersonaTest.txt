@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: personaTest.PersonaTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec <<< FAILURE!
+personaTest.PersonaTest.testOutput_PatenteEAassicurazione()  Time elapsed: 0.049 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at personaTest.PersonaTest.testOutput_PatenteEAassicurazione(PersonaTest.java:54)
+
+personaTest.PersonaTest.testOutputdelMain()  Time elapsed: 0.005 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:40)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:35)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:227)
+	at personaTest.PersonaTest.testOutputdelMain(PersonaTest.java:101)
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MedieVoti.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">codiceHW1</a> &gt; <a href="index.source.html" class="el_package">CodiceMedie</a> &gt; <span class="el_source">MedieVoti.java</span></div><h1>MedieVoti.java</h1><pre class="source lang-java linenums">package CodiceMedie;
+
+import java.text.DecimalFormat;
+
+class Student {
+    String firstName;
+    String lastName;
+    double averageGrade;
+    double lastGrade;
+
+<span class="fc" id="L11">    public Student(String firstName, String lastName, double averageGrade, double lastGrade) {</span>
+<span class="fc bfc" id="L12" title="All 4 branches covered.">        if (firstName == null || lastName == null) {</span>
+<span class="fc" id="L13">            throw new IllegalArgumentException(&quot;Il nome e il cognome dello studente non possono essere nulli.&quot;);</span>
+        }
+<span class="fc bfc" id="L15" title="All 4 branches covered.">        if (Double.isNaN(averageGrade) || Double.isNaN(lastGrade)) {</span>
+<span class="fc" id="L16">            throw new IllegalArgumentException(&quot;La media dei voti e l'ultimo voto dello studente non possono essere nulli.&quot;);</span>
+        }
+
+<span class="fc" id="L19">        this.firstName = firstName;</span>
+<span class="fc" id="L20">        this.lastName = lastName;</span>
+<span class="fc" id="L21">        this.averageGrade = averageGrade;</span>
+<span class="fc" id="L22">        this.lastGrade = lastGrade;</span>
+<span class="fc" id="L23">    }</span>
+
+    public boolean nuovaMedia() {
+<span class="fc bfc" id="L26" title="All 4 branches covered.">        if (lastGrade &gt;= 18 &amp;&amp; lastGrade &lt;= 30) {</span>
+<span class="fc" id="L27">            double newAverage = (averageGrade + lastGrade) / 2.0;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">            return newAverage &gt;= averageGrade;</span>
+        }
+<span class="fc" id="L30">        return false;</span>
+    }
+    
+    
+
+    public String toString() {
+<span class="fc" id="L36">        DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+<span class="fc" id="L37">        return firstName + &quot; &quot; + lastName + &quot;: Media &quot; + df.format(averageGrade) + &quot;, Ultimo voto &quot; + lastGrade;</span>
+    }
+}
+
+<span class="nc" id="L41">public class MedieVoti {</span>
+    public static void main(String[] args) {
+<span class="fc" id="L43">        String[] firstNames = {</span>
+<span class="fc" id="L44">                &quot;MARIO&quot;, &quot;LUCA&quot;, &quot;MARCO&quot;, &quot;GABRIELE&quot;, &quot;ANDREA&quot;,</span>
+<span class="fc" id="L45">                &quot;LETIZIA&quot;, &quot;CLAUDIA&quot;, &quot;PAOLO&quot;, &quot;ENRICO&quot;, &quot;VINCENZO&quot;</span>
+        };
+
+<span class="fc" id="L48">        String[] lastNames = {</span>
+<span class="fc" id="L49">                &quot;ROSSI&quot;, &quot;BIANCHI&quot;, &quot;TOGNI&quot;, &quot;ISOLA&quot;, &quot;GIOIA&quot;,</span>
+<span class="fc" id="L50">                &quot;GUERRA&quot;, &quot;GIALLI&quot;, &quot;VERDI&quot;, &quot;FERMI&quot;, &quot;TESTA&quot;</span>
+        };
+
+<span class="fc" id="L53">        Student[] students = new Student[10];</span>
+
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (int i = 0; i &lt; students.length; i++) {</span>
+<span class="fc" id="L56">            double averageGrade = 18 + Math.random() * 12;</span>
+<span class="fc" id="L57">            double lastGrade = 18 + Math.random() * 12;</span>
+<span class="fc" id="L58">            averageGrade = Math.round(averageGrade * 100.0) / 100.0;</span>
+<span class="fc" id="L59">            lastGrade = Math.round(lastGrade * 100.0) / 100.0;</span>
+<span class="fc" id="L60">            students[i] = new Student(firstNames[i], lastNames[i], averageGrade, lastGrade);</span>
+        }
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        for (Student student : students) {</span>
+<span class="fc" id="L64">            System.out.println(student);</span>
+<span class="fc" id="L65">            System.out.println(&quot;Nuova media supera quella precedente? &quot; + student.nuovaMedia());</span>
+<span class="fc" id="L66">            System.out.println(); // Empty line for readability</span>
+        }
+<span class="fc" id="L68">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
